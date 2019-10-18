@@ -1,0 +1,30 @@
+﻿@using Soft.ViewModels
+@model LoginViewModel
+@{
+    ViewData["Title"] = "LoginUser";
+}
+
+<h2>Login User</h2>
+
+<table>
+    @using (Html.BeginForm("Login", "Account",FormMethod.Post))
+                {
+                    <tr>
+                        <td>@Html.LabelFor(x => x.Email)</td>
+                        <td>@Html.EditorFor(x => x.Email)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(x => x.Password)</td>
+                        <td>@Html.EditorFor(x => x.Password)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(x => x.RememberMe)</td>
+                        <td>@Html.EditorFor(x => x.RememberMe)</td>
+                        <td>@Html.HiddenFor(x => x.ReturnUrl, "ReturnUrl")</td>
+                    </tr>
+                    <tr><td><input type="submit" value="Log In" /></td></tr>
+                }
+</table>
+
+
+

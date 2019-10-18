@@ -1,0 +1,31 @@
+﻿@using DataLayer.Models
+@model List<Order>
+
+
+@{
+    ViewData["Title"] = "MyOrders";
+}
+
+<h2>MyOrders</h2>
+
+<table>
+    <tr>
+        <td><p>Product &emsp;</p></td>
+        <td><p>Quantity</p></td>
+        <td></td>
+    </tr>
+</table>
+@foreach (var order in Model)
+{
+    <table>
+        @foreach (var product in order.ListProducts)
+        {
+            <tr>
+                <td>@product.Product.Name &emsp;</td>
+                <td>@product.Quantity &#13; </td>
+            </tr>
+        }
+    </table>
+    <br>
+}
+

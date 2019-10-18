@@ -1,0 +1,23 @@
+﻿@using DataLayer.Models
+@model List<Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<br>
+<table>
+    @foreach (var product in Model)
+    {
+
+        using (Html.BeginForm("Add", "Basket", FormMethod.Post))
+        {
+            <tr>
+                <td>@product.Name &emsp; @Html.TextBox("quantity")</td>
+                <td> &emsp;@product.Price $ &emsp;</td>
+                <td>@Html.Hidden("idProduct", product.Id)</td>
+                <td> <input type="submit" value="Add" /></td>
+            </tr>
+        }
+
+    }
+</table>
+

@@ -1,0 +1,28 @@
+﻿@using DataLayer.Models
+@model Order
+
+<table>
+    <tr>
+        <td><p></p></td>
+        <td><p>Product &emsp;</p></td>
+        <td><p>Quantity</p></td>
+    </tr>
+</table>
+<table>
+    @using (Html.BeginForm("Buy", "Basket", FormMethod.Post))
+    {
+
+        @foreach (var basket in Model.ListProducts)
+        {
+            <tr>
+                <td>@basket.Product.Name &emsp; </td>
+                <td>@basket.Quantity</td>
+            </tr>
+        }
+        <tr>
+            <td>@Html.Hidden("idOrder", Model.Id)</td>
+            <td><input type="submit" value="Buy" /></td>
+        </tr>
+
+    }
+</table>

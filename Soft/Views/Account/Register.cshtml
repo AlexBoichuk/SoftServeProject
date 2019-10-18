@@ -1,0 +1,27 @@
+﻿@using Soft.ViewModels
+@model RegisterViewModel
+<h2>Register a new user</h2>
+
+<table>
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+        <tr>
+            <td>@Html.LabelFor(x => x.Email)</td>
+            <td>@Html.TextBoxFor(x => x.Email)</td>
+            @Html.ValidationMessageFor(model => model.Email)
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.Password)</td>
+            <td>@Html.TextBoxFor(x => x.Password)</td>
+            @Html.ValidationMessageFor(model => model.Password)
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.PasswordConfirm)</td>
+            <td>@Html.TextBoxFor(x => x.PasswordConfirm)</td>
+            @Html.ValidationMessageFor(model => model.PasswordConfirm)
+        </tr>
+        <tr><td><input type="submit" value="Register" /></td></tr>
+    }
+
+
+</table>
